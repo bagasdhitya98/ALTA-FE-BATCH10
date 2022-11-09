@@ -36,3 +36,17 @@ const functTest3 = () => {
 };
 
 functTest3();
+
+function func1() {
+  console.log("Hello");
+}
+function func2() {
+  func1();
+  console.log("Selamat Siang");
+}
+function func3() {
+  func2();
+  console.log("Kenalan yuk");
+}
+
+func3();

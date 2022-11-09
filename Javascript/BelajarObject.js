@@ -101,8 +101,8 @@ let position = {
 };
 
 //delete/hapus nested object
-// delete position["responsibilities"][2];
-// delete position["address"]["state"];
+delete position["responsibilities"][2];
+delete position["address"]["state"];
 
 // console.log("Object yang sudah mengalami perubahan :", position);
 
@@ -118,3 +118,25 @@ let personal = {
 
 let cloneObject = Object.assign({}, personal);
 console.log("Hasil kloning :", cloneObject);
+
+//belajar for in (perulangan pada object)
+let car = {
+  type: "sedan",
+  color: "red",
+  year: 2021,
+};
+
+function forInKey() {
+  for (const key in car) {
+    console.log(car[key]);
+  }
+}
+
+function forInValue() {
+  for (const values in car) {
+    console.log(car[values]);
+  }
+}
+
+forInKey();
+forInValue();

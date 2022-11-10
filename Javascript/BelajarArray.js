@@ -137,3 +137,38 @@ console.log(
   "Mengakses semua city dari array :",
   names.map((item) => item.address.city)
 );
+
+//concat
+
+function mergeArray(arr1, arr2) {
+  let arrMerge = arr1.concat(arr2);
+  console.log(arrMerge);
+}
+
+mergeArray(["Mitro, Yudha, Hendri"], ["Inri, Almira"]);
+
+function mergeWithAdded(arr1, addOn) {
+  let arrResult = arr1.concat(addOn);
+  console.log(arrResult);
+}
+
+mergeWithAdded(["Pisang", "Jeruk", "Salak", "Nangka"], "Durian");
+
+//method splice
+
+let fruitsSplice = ["Semangka", "Kiwi", "Stroberi", "Melon"];
+fruitsSplice.splice(2, 0, "Nanas", "Belimbing");
+console.log("Hasil penambahan buah :", fruitsSplice);
+// console.log("Panjang index dari fruitsSplice :", fruitsSplice.length);
+
+//method slice
+
+let makanan = ["Ayam Geprek", "Ayam Penyet", "Lele Bakar", "Nila Goreng"];
+let spliceMakanan = makanan.slice(2);
+
+console.log("Hasil slicing dari makanan :", spliceMakanan);
+
+//method toString
+
+let deviceBrand = ["Asus", "Acer", "Apple", "HP"];
+console.log(typeof deviceBrand.toString());

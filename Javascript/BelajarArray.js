@@ -172,3 +172,22 @@ console.log("Hasil slicing dari makanan :", spliceMakanan);
 
 let deviceBrand = ["Asus", "Acer", "Apple", "HP"];
 console.log(typeof deviceBrand.toString());
+
+let programmingScore = [
+  ["A+", "A", "A-"],
+  ["B+", "B", "B-"],
+  ["C+", "C", "C-"],
+];
+
+let indexOfArr = programmingScore[0][2];
+console.log("Result of indexOfArr :", indexOfArr);
+let indexOfSecond = programmingScore[1][1];
+console.log("Result of indexOfSecond :", indexOfSecond);
+
+let data = {
+  warehouse: ["Electronics", "Furniture", "Vehicle", "Devices"],
+};
+
+let checkWarehouse = data.warehouse;
+console.log("Data of Warehouse :", checkWarehouse);
+console.log("Index of 2 :", data.warehouse[2]);

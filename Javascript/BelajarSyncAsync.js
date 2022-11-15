@@ -104,3 +104,10 @@ const playFunction = async () => {
 };
 
 playFunction();
+
+// const playFunction = async() => {
+//     await bentengTakeshi
+//     .then(() => {})
+//     .catch(() => {})
+//     .finally(() => {})
+// }

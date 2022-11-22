@@ -1,43 +1,23 @@
 import React, { Component } from "react";
+import Card from "./components/Card";
 
 class App extends Component {
-  state = {
-    value: 0,
-    data: [],
-  };
-
-  decrementValue() {
-    let currentValue = this.state.value;
-    this.setState({ value: currentValue - 1 });
-    console.log("current value :", this.state.value);
-  }
-
-  incrementValue() {
-    let currentValue = this.state.value;
-    this.setState({ value: currentValue + 1 });
-    console.log("current value :", this.state.value);
-  }
   render() {
     return (
       <div className="w-screen h-screen bg-white">
-        <div className="w-96 h-20 bg-yellow-600 flex items-center justify-center">
-          <p className="text-white font-semibold">
-            Result : {this.state.value}
-          </p>
-          <div className="mt-40">
-            <button
-              className="btn btn-primary"
-              onClick={() => this.incrementValue()}
-            >
-              Increment
-            </button>
-            <button
-              className="btn btn-primary"
-              onClick={() => this.decrementValue()}
-            >
-              Decrement
-            </button>
-          </div>
+        <div className="flex flex-row">
+          <Card
+            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+            title="Shoes"
+            text="text-black"
+            description="Lorem ipsum blablabla"
+          />
+          <Card
+            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+            title="Clothes"
+            text="text-red-600"
+            description="Clothes blablabla"
+          />
         </div>
       </div>
     );
@@ -45,6 +25,80 @@ class App extends Component {
 }
 
 export default App;
+
+//----STATE----//
+// state = {
+//   value: 0,
+//   data: [],
+// };
+
+// decrementValue() {
+//   let currentValue = this.state.value;
+//   this.setState({ value: currentValue - 1 });
+//   console.log("current value :", this.state.value);
+// }
+
+// incrementValue() {
+//   let currentValue = this.state.value;
+//   this.setState({ value: currentValue + 1 });
+//   console.log("current value :", this.state.value);
+// }
+
+// getName() {
+//   let dummy = [
+//     {
+//       id: 1,
+//       name: "Mitro",
+//     },
+//     {
+//       id: 2,
+//       name: "Yudha",
+//     },
+//     {
+//       id: 3,
+//       name: "Giyas",
+//     },
+//   ];
+//   this.setState({ data: dummy });
+// }
+
+// componentDidMount() {
+//   this.getName();
+// }
+
+// render() {
+//   const result = this.state.data;
+//   console.log("result :", result);
+
+//   return (
+//     <div className="w-screen h-screen bg-white">
+//       <div className="w-96 h-20 bg-yellow-600 flex items-center justify-center">
+//         <p className="text-white font-semibold">
+//           Result : {this.state.value}
+//         </p>
+//         <div className="mt-40">
+//           <button
+//             className="btn btn-primary"
+//             onClick={() => this.incrementValue()}
+//           >
+//             Increment
+//           </button>
+//           <button
+//             className="btn btn-primary"
+//             onClick={() => this.decrementValue()}
+//           >
+//             Decrement
+//           </button>
+//         </div>
+//       </div>
+//       <div className="mt-20 ml-10">
+//         {result.map((item) => {
+//           return <p className="text-black font-semibold">{item.name}</p>;
+//         })}
+//       </div>
+//     </div>
+//   );
+// }
 
 //----CHANGE COLOR----//
 

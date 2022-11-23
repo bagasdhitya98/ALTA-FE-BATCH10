@@ -5,9 +5,9 @@ class Card extends Component {
     const { image, title, description, text } = this.props;
 
     return (
-      <div className="card w-60 bg-white shadow-xl mx-10 my-10">
+      <div className="card w-96 h-96 bg-white shadow-xl mx-10 my-10">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img width={90} height={90} src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title text-black">{title}</h2>

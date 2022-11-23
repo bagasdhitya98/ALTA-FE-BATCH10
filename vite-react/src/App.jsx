@@ -3,16 +3,27 @@ import Card from "./components/Card";
 import Container from "./components/Container";
 import CustomerService from "./components/CustomerService";
 import Navbar from "./components/Navbar";
-import axios from "axios";
+import api from "./services/api";
 
 class App extends Component {
   state = {
     data: [],
   };
 
-  getData() {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/posts`)
+  //----TRY CATCH----//
+  // async getAllProducts() {
+  //   try {
+  //     const response = await api.all_products();
+  //     console.log(response.data);
+  //     this.setState({data: response.data})
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  async getAllProducts() {
+    await api
+      .all_products()
       .then((response) => {
         console.log(response.data);
         this.setState({ data: response.data });
@@ -23,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getData();
+    this.getAllProducts();
   }
 
   render() {
@@ -32,32 +43,18 @@ class App extends Component {
 
     return (
       <Container>
-        <Navbar title="Dashboard" />
+        <Navbar title="Alterra Shop" />
         <div className="flex flex-wrap">
-          <Card
-            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
-            title="Shoes"
-            text="text-black"
-            description="Lorem ipsum blablabla"
-          />
-          <Card
-            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
-            title="Clothes"
-            text="text-red-600"
-            description="Clothes blablabla"
-          />
-          <Card
-            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
-            title="Clothes"
-            text="text-red-600"
-            description="Clothes blablabla"
-          />
-          <Card
-            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
-            title="Clothes"
-            text="text-red-600"
-            description="Clothes blablabla"
-          />
+          {result.map((item) => {
+            return (
+              <Card
+                title={item.title}
+                text={`text-black`}
+                description={item.description.substring(0, 120) + `...`}
+                image={item.image}
+              />
+            );
+          })}
         </div>
         <div className="mx-10 sticky z-10 bottom-10 flex justify-end">
           <CustomerService />
@@ -68,6 +65,72 @@ class App extends Component {
 }
 
 export default App;
+
+//----JSON TYPICODE----//
+
+// class App extends Component {
+//   state = {
+//     data: [],
+//   };
+
+//   getData() {
+//     axios
+//       .get(`https://jsonplaceholder.typicode.com/posts`)
+//       .then((response) => {
+//         console.log(response.data);
+//         this.setState({ data: response.data });
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }
+
+//   componentDidMount() {
+//     this.getData();
+//   }
+
+//   render() {
+//     const result = this.state.data;
+//     console.log("result :", result);
+
+//     return (
+//       <Container>
+//         <Navbar title="Dashboard" />
+//         <div className="flex flex-wrap">
+//           <Card
+//             image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+//             title="Shoes"
+//             text="text-black"
+//             description="Lorem ipsum blablabla"
+//           />
+//           <Card
+//             image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+//             title="Clothes"
+//             text="text-red-600"
+//             description="Clothes blablabla"
+//           />
+//           <Card
+//             image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+//             title="Clothes"
+//             text="text-red-600"
+//             description="Clothes blablabla"
+//           />
+//           <Card
+//             image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+//             title="Clothes"
+//             text="text-red-600"
+//             description="Clothes blablabla"
+//           />
+//         </div>
+//         <div className="mx-10 sticky z-10 bottom-10 flex justify-end">
+//           <CustomerService />
+//         </div>
+//       </Container>
+//     );
+//   }
+// }
+
+// export default App;
 
 //----STATE----//
 // state = {

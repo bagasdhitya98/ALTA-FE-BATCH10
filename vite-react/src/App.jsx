@@ -1,11 +1,63 @@
 import React, { Component } from "react";
 import Card from "./components/Card";
+import Container from "./components/Container";
+import CustomerService from "./components/CustomerService";
+import Navbar from "./components/Navbar";
 
 class App extends Component {
   render() {
     return (
-      <div className="w-screen h-screen bg-white">
-        <div className="flex flex-row">
+      <Container>
+        <Navbar title="Dashboard" />
+        <div className="flex flex-wrap">
+          <Card
+            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+            title="Shoes"
+            text="text-black"
+            description="Lorem ipsum blablabla"
+          />
+          <Card
+            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+            title="Clothes"
+            text="text-red-600"
+            description="Clothes blablabla"
+          />
+          <Card
+            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+            title="Shoes"
+            text="text-black"
+            description="Lorem ipsum blablabla"
+          />
+          <Card
+            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+            title="Clothes"
+            text="text-red-600"
+            description="Clothes blablabla"
+          />
+          <Card
+            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+            title="Shoes"
+            text="text-black"
+            description="Lorem ipsum blablabla"
+          />
+          <Card
+            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+            title="Clothes"
+            text="text-red-600"
+            description="Clothes blablabla"
+          />
+          <Card
+            image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
+            title="Shoes"
+            text="text-black"
+            description="Lorem ipsum blablabla"
+          />
+          <Card
+            image="https://media.istockphoto.com/id/653003428/photo/fashionable-clothes-in-a-boutique-store-in-london.jpg?s=612x612&w=0&k=20&c=UafU4a4xSbepJow4kvNu0q-LD4hFUoli7q3fvwkp79s="
+            title="Clothes"
+            text="text-red-600"
+            description="Clothes blablabla"
+          />
           <Card
             image="https://cdn.shopify.com/s/files/1/0046/9139/4658/files/SS20_HOMEPAGE_MCCLEANPAIR_880x550_crop_center.jpg?v=1614334815"
             title="Shoes"
@@ -19,7 +71,10 @@ class App extends Component {
             description="Clothes blablabla"
           />
         </div>
-      </div>
+        <div className="mx-10 sticky z-10 bottom-10 flex justify-end">
+          <CustomerService />
+        </div>
+      </Container>
     );
   }
 }

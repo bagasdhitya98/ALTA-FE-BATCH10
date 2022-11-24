@@ -28,7 +28,7 @@ class Home extends Component {
 
   render() {
     const result = this.state.data;
-
+    const name = this.props.location?.state?.name;
     return (
       <Container>
         <Navbar
@@ -36,6 +36,7 @@ class Home extends Component {
           home={() => this.props.navigate("/")}
           about={() => this.props.navigate("/about")}
           contact={() => this.props.navigate("/contact")}
+          profile={name ? `Hi, Welcome ${name}` : `You are not register yet!`}
         />
         <div className="flex flex-wrap">
           {result.map((item) => {

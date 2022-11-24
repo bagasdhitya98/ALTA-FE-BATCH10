@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
 import Detail from "./pages/Detail";
+import Register from "./pages/Register";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/detail" element={<Detail />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     );

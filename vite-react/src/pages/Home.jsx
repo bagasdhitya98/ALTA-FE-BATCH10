@@ -15,21 +15,11 @@ class Home extends Component {
     await api
       .all_products()
       .then((response) => {
-        console.log(response.data);
         this.setState({ data: response.data });
       })
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  nextPage() {
-    let str = "Hello, I'm params from Home page";
-    this.props.navigate("/detail", {
-      state: {
-        data: str,
-      },
-    });
   }
 
   componentDidMount() {
@@ -38,7 +28,6 @@ class Home extends Component {
 
   render() {
     const result = this.state.data;
-    console.log("result :", result);
 
     return (
       <Container>
@@ -48,17 +37,22 @@ class Home extends Component {
           about={() => this.props.navigate("/about")}
           contact={() => this.props.navigate("/contact")}
         />
-        <button className="btn btn-secondary" onClick={() => this.nextPage()}>
-          Sending Params
-        </button>
         <div className="flex flex-wrap">
           {result.map((item) => {
             return (
               <Card
+                keys={item.id}
                 title={item.title}
                 text={`text-black`}
                 description={item.description.substring(0, 120) + `...`}
                 image={item.image}
+                onClick={() =>
+                  this.props.navigate("/detail", {
+                    state: {
+                      id: item.id,
+                    },
+                  })
+                }
               />
             );
           })}

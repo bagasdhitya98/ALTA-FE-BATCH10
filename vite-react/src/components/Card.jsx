@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class Card extends Component {
   render() {
-    const { image, title, description, text } = this.props;
+    const { image, title, description, text, onClick, keys } = this.props;
 
     return (
-      <div className="card w-96 h-96 bg-white shadow-xl mx-10 my-10">
+      <div className="card w-96 h-96 bg-white shadow-xl mx-10 my-10" key={keys}>
         <figure>
           <img width={90} height={90} src={image} alt="Shoes" />
         </figure>
@@ -13,7 +13,9 @@ class Card extends Component {
           <h2 className="card-title text-black">{title}</h2>
           <p className={`${text}`}>{description}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-primary" onClick={onClick}>
+              Detail
+            </button>
           </div>
         </div>
       </div>

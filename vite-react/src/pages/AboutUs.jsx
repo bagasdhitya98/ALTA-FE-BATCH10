@@ -14,9 +14,6 @@ class AboutUs extends Component {
           about={() => this.props.navigate("/about")}
           contact={() => this.props.navigate("/contact")}
         />
-        <div>
-          <p className="text-black">{this.props.location.state.data}</p>
-        </div>
       </Container>
     );
   }

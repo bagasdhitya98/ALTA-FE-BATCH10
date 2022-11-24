@@ -23,14 +23,14 @@ class Home extends Component {
       });
   }
 
-  // nextPage() {
-  //   let str = "Hello, I'm params from Home page";
-  //   this.props.navigate("/about", {
-  //     state: {
-  //       data: str,
-  //     },
-  //   });
-  // }
+  nextPage() {
+    let str = "Hello, I'm params from Home page";
+    this.props.navigate("/detail", {
+      state: {
+        data: str,
+      },
+    });
+  }
 
   componentDidMount() {
     this.getAllProducts();
@@ -48,9 +48,9 @@ class Home extends Component {
           about={() => this.props.navigate("/about")}
           contact={() => this.props.navigate("/contact")}
         />
-        {/* <button className="btn btn-secondary" onClick={() => this.nextPage()}>
+        <button className="btn btn-secondary" onClick={() => this.nextPage()}>
           Sending Params
-        </button> */}
+        </button>
         <div className="flex flex-wrap">
           {result.map((item) => {
             return (

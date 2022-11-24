@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import AboutUs from "./pages/AboutUs";
+import Detail from "./pages/Detail";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/detail" element={<Detail />} />
         </Routes>
       </BrowserRouter>
     );

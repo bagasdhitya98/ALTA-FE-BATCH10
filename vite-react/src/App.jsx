@@ -1,70 +1,82 @@
-import React, { Component } from "react";
-import Card from "./components/Card";
-import Container from "./components/Container";
-import CustomerService from "./components/CustomerService";
-import Navbar from "./components/Navbar";
-import api from "./services/api";
+import { Component } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 
 class App extends Component {
-  state = {
-    data: [],
-  };
-
-  //----TRY CATCH----//
-  // async getAllProducts() {
-  //   try {
-  //     const response = await api.all_products();
-  //     console.log(response.data);
-  //     this.setState({data: response.data})
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-
-  async getAllProducts() {
-    await api
-      .all_products()
-      .then((response) => {
-        console.log(response.data);
-        this.setState({ data: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  componentDidMount() {
-    this.getAllProducts();
-  }
-
   render() {
-    const result = this.state.data;
-    console.log("result :", result);
-
     return (
-      <Container>
-        <Navbar title="Alterra Shop" />
-        <div className="flex flex-wrap">
-          {result.map((item) => {
-            return (
-              <Card
-                title={item.title}
-                text={`text-black`}
-                description={item.description.substring(0, 120) + `...`}
-                image={item.image}
-              />
-            );
-          })}
-        </div>
-        <div className="mx-10 sticky z-10 bottom-10 flex justify-end">
-          <CustomerService />
-        </div>
-      </Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<AboutUs />} />
+        </Routes>
+      </BrowserRouter>
     );
   }
 }
 
 export default App;
+
+//----FETCHING DATA----//
+// state = {
+//   data: [],
+// };
+
+// //----TRY CATCH----//
+// // async getAllProducts() {
+// //   try {
+// //     const response = await api.all_products();
+// //     console.log(response.data);
+// //     this.setState({data: response.data})
+// //   } catch (error) {
+// //     console.log(error);
+// //   }
+// // }
+
+// async getAllProducts() {
+//   await api
+//     .all_products()
+//     .then((response) => {
+//       console.log(response.data);
+//       this.setState({ data: response.data });
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// }
+
+// componentDidMount() {
+//   this.getAllProducts();
+// }
+
+// render() {
+//   const result = this.state.data;
+//   console.log("result :", result);
+
+//   return (
+//     <Container>
+//       <Navbar title="Alterra Shop" />
+//       <div className="flex flex-wrap">
+//         {result.map((item) => {
+//           return (
+//             <Card
+//               title={item.title}
+//               text={`text-black`}
+//               description={item.description.substring(0, 120) + `...`}
+//               image={item.image}
+//             />
+//           );
+//         })}
+//       </div>
+//       <div className="mx-10 sticky z-10 bottom-10 flex justify-end">
+//         <CustomerService />
+//       </div>
+//     </Container>
+//   );
+// }
 
 //----JSON TYPICODE----//
 

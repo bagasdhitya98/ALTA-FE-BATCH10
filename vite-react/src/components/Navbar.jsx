@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Navbar extends Component {
   render() {
-    const { title } = this.props;
+    const { title, home, about, contact } = this.props;
     return (
       <div className="navbar bg-white shadow-md sticky z-10 top-0">
         <div className="flex-1 ml-7">
@@ -16,13 +16,19 @@ class Navbar extends Component {
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a className="text-black">Home</a>
+              <a className="text-black" onClick={home}>
+                Home
+              </a>
             </li>
             <li>
-              <a className="text-black">About</a>
+              <a className="text-black" onClick={about}>
+                About
+              </a>
             </li>
             <li>
-              <a className="text-black">Contact Us</a>
+              <a className="text-black" onClick={contact}>
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>

@@ -44,7 +44,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Container>
+    <div className="w-screen h-full bg-white">
       <Navbar />
       <div className="mx-20 my-20 flex flex-wrap">
         {news && loading === true ? (
@@ -66,7 +66,7 @@ const Home = () => {
           </div>
         )}
       </div>
-    </Container>
+    </div>
   );
 };
 

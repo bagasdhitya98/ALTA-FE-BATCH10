@@ -4,6 +4,7 @@ import Container from "../components/Container";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import axios from "axios";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const baseUrl = `https://newsapi.org/v2/`;
 const urlHeadline =
@@ -15,6 +16,7 @@ const urlHeadline =
 const Home = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const getNews = () => {
     axios
@@ -27,6 +29,14 @@ const Home = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleDetail = (item) => {
+    navigate("/detail", {
+      state: {
+        item: item,
+      },
+    });
   };
 
   useEffect(() => {
@@ -45,6 +55,7 @@ const Home = () => {
                   title={item.title}
                   image={item.urlToImage}
                   description={item.description}
+                  onClick={() => handleDetail(item)}
                 />
               </div>
             );

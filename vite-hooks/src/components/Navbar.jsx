@@ -1,6 +1,12 @@
 import React from "react";
 
-const Navbar = ({ onClickHome, onClickAbout, onClickContact }) => {
+const Navbar = ({
+  onClickHome,
+  onClickAbout,
+  onClickContact,
+  name,
+  logout,
+}) => {
   return (
     <div className="navbar bg-white shadow-md sticky z-10 top-0">
       <div className="flex-1 ml-7">
@@ -23,6 +29,9 @@ const Navbar = ({ onClickHome, onClickAbout, onClickContact }) => {
           </li>
         </ul>
       </div>
+      <div className="mx-16">
+        <p className="text-alta-space-cadet font-bold">Hi, Welcome {name}! </p>
+      </div>
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">
@@ -43,7 +52,7 @@ const Navbar = ({ onClickHome, onClickAbout, onClickContact }) => {
             <a>Settings</a>
           </li>
           <li className="text-alta-space-cadet">
-            <a>Logout</a>
+            <a onClick={logout}>Logout</a>
           </li>
         </ul>
       </div>

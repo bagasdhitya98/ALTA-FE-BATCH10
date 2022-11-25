@@ -4,14 +4,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Register from "./pages/Register";
+import NotFound from "./pages/NotFound";
+
+import { useCookies } from "react-cookie";
 
 const App = () => {
+  const [cookies, setCookie] = useCookies();
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Register />} />
         <Route path="/detail" element={<Detail />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

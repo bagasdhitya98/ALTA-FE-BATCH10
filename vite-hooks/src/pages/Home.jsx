@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import Container from "../components/Container";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const baseUrl = `https://newsapi.org/v2/`;
 const urlHeadline =
@@ -16,6 +16,7 @@ const urlHeadline =
 const Home = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [cookies, removeCookie] = useCookies();
   const navigate = useNavigate();
 
   const getNews = () => {
@@ -39,13 +40,21 @@ const Home = () => {
     });
   };
 
+  const handleLogout = () => {
+    removeCookie("Name", { path: "/" });
+    console.log("remove cookie :", cookies.Name);
+    navigate("/");
+  };
+
   useEffect(() => {
     getNews();
   }, []);
 
+  console.log("cookies ", cookies.Name);
+
   return (
     <div className="w-screen h-full bg-white">
-      <Navbar />
+      <Navbar logout={() => handleLogout()} name={cookies.Name} />
       <div className="mx-20 my-20 flex flex-wrap">
         {news && loading === true ? (
           news.map((item) => {

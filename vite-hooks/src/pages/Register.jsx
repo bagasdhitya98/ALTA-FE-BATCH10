@@ -1,12 +1,18 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cookies, setCookie] = useCookies("");
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    alert(name);
+    setCookie("Name", name, { path: "/" });
+    setCookie("Email", email, { path: "/" });
+    navigate("/home");
     event.preventDefault();
   };
 

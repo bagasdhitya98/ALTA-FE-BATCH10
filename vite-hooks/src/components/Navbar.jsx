@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = ({ onClickHome, onClickAbout, onClickContact }) => {
   return (
-    <div className="navbar bg-white- shadow-md sticky z-10 top-0">
+    <div className="navbar bg-white shadow-md sticky z-10 top-0">
       <div className="flex-1 ml-7">
         <img
           src="https://academy.alterra.id/wp-content/uploads/2022/06/Logo-Colour-Transparant-1.png"

@@ -9,12 +9,10 @@ const Detail = () => {
   const item = location?.state?.item;
 
   return (
-    <Container>
-      <div className="m-20">
-        <h1 className="text-black">{item.title}</h1>
-        <p className="text-black">{item.description}</p>
-      </div>
-    </Container>
+    <div className="m-20">
+      <h1 className="text-black">{item.title}</h1>
+      <p className="text-black">{item.description}</p>
+    </div>
   );
 };
 

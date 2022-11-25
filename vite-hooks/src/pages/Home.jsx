@@ -61,7 +61,7 @@ const Home = () => {
             );
           })
         ) : (
-          <div className="m-20">
+          <div className="m-20 h-screen">
             <h1 className="text-black">Please wait brooo ...</h1>
           </div>
         )}

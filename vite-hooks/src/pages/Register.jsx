@@ -12,6 +12,8 @@ const Register = () => {
   const handleSubmit = (event) => {
     setCookie("Name", name, { path: "/" });
     setCookie("Email", email, { path: "/" });
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
     navigate("/home");
     event.preventDefault();
   };

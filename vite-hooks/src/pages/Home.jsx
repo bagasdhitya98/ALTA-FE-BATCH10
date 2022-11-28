@@ -18,8 +18,11 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [cookies, removeCookie] = useCookies();
   const navigate = useNavigate();
+  const getName = localStorage.getItem("name");
+  const getEmail = localStorage.getItem("email");
 
-  console.log("cookie ", cookies.Name);
+  console.log("name :", getName);
+  console.log("email :", getEmail);
 
   const getNews = () => {
     axios
@@ -45,6 +48,8 @@ const Home = () => {
   const handleLogout = () => {
     removeCookie("Name");
     removeCookie("Email");
+    localStorage.removeItem("age");
+    localStorage.removeItem("pet");
     navigate("/");
   };
 

@@ -30,7 +30,7 @@ const Navbar = ({
         </ul>
       </div>
       <div className="mx-16">
-        <p className="text-alta-space-cadet font-bold">Hi, Welcome {name}! </p>
+        <p className="text-alta-space-cadet font-bold">{name}</p>
       </div>
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">

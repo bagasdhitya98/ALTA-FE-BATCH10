@@ -19,6 +19,8 @@ const Home = () => {
   const [cookies, removeCookie] = useCookies();
   const navigate = useNavigate();
 
+  console.log("cookie ", cookies.Name);
+
   const getNews = () => {
     axios
       .get(urlHeadline)
@@ -41,8 +43,8 @@ const Home = () => {
   };
 
   const handleLogout = () => {
-    removeCookie("Name", { path: "/" });
-    console.log("remove cookie :", cookies.Name);
+    removeCookie("Name");
+    removeCookie("Email");
     navigate("/");
   };
 
@@ -50,11 +52,16 @@ const Home = () => {
     getNews();
   }, []);
 
-  console.log("cookies ", cookies.Name);
-
   return (
     <div className="w-screen h-full bg-white">
-      <Navbar logout={() => handleLogout()} name={cookies.Name} />
+      <Navbar
+        logout={() => handleLogout()}
+        name={
+          cookies === undefined
+            ? `You are not register/login`
+            : `Hi, Welcome ${cookies.Email}! `
+        }
+      />
       <div className="mx-20 my-20 flex flex-wrap">
         {news && loading === true ? (
           news.map((item) => {

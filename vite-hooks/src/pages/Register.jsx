@@ -14,11 +14,7 @@ const Register = () => {
     setCookie("Email", email, { path: "/" });
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
-    if (cookies.Name) {
-      navigate("/home");
-    } else {
-      navigate("/");
-    }
+    navigate("/home");
     event.preventDefault();
   };
 

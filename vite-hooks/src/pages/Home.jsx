@@ -50,7 +50,7 @@ const Home = () => {
     removeCookie("Email");
     localStorage.removeItem("age");
     localStorage.removeItem("pet");
-    navigate("/");
+    navigate("/register");
   };
 
   useEffect(() => {

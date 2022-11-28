@@ -6,15 +6,12 @@ import Detail from "./pages/Detail";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
-import { useCookies } from "react-cookie";
-
 const App = () => {
-  const [cookies, setCookie] = useCookies();
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<NotFound />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/home" element={<Home />} />
       </Routes>

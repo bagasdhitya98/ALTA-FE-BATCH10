@@ -1,13 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { deposit, withdraw, theme } from "../features/balanceSlice";
 
 const Example = () => {
+  const navigate = useNavigate();
   const balance = useSelector((state) => state.balance);
   const dispatch = useDispatch();
 
   return (
     <div className={`w-screen h-screen ${balance.toggle}`}>
+      <button onClick={() => navigate("/example_detail")}>Next Page</button>
       <button onClick={() => dispatch(theme())}>Change Theme</button>
       <div className="flex justify-center">
         <p className="font-semibold mt-20 text-3xl">

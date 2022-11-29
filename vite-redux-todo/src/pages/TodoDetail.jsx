@@ -1,11 +1,7 @@
 import React from "react";
 
 const TodoDetail = () => {
-  return (
-    <div>
-      <div></div>
-    </div>
-  );
+  return <div>TodoDetail</div>;
 };
 
 export default TodoDetail;

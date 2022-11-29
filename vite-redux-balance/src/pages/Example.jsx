@@ -8,6 +8,15 @@ const Example = () => {
           Let's learning Redux + Redux Toolkit
         </p>
       </div>
+      <div className="flex justify-center mt-20">
+        <h1 className="font-semibold">$0</h1>
+      </div>
+      <div className="flex justify-center mt-20">
+        <button className="btn bg-alta-orange text-white mx-10">
+          Deposit $10
+        </button>
+        <button className="btn bg-alta-orange text-white">Withdraw $10</button>
+      </div>
     </div>
   );
 };

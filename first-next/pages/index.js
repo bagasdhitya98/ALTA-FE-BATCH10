@@ -5,12 +5,6 @@ import Router from "next/router";
 import Navbar from "../components/Navbar";
 
 const App = () => {
-  // const nextPage = () => {
-  //   const id = 5;
-  //   Router.push({
-  //     pathname: `/product/${id}`,
-  //   });
-  // };
   const nextPage = () => {
     Router.push({
       pathname: `/contact/contact`,

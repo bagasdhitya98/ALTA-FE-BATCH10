@@ -9,7 +9,7 @@ const Detail = () => {
   return (
     <div className="w-screen h-screen bg-white">
       <div className="flex justify-center">
-        <img src={router.query.image} width={500} height={500} />
+        <img src={router?.query?.image} width={500} height={500} />
       </div>
       <div className="flex justify-center">
         <h1 className="text-black mt-12 font-semibold text-alta-orange">

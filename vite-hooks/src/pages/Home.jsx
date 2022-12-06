@@ -5,6 +5,7 @@ import Card from "../components/Card";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import Modal from "../components/Modal";
 
 const baseUrl = `https://newsapi.org/v2/`;
 const urlHeadline =
@@ -16,6 +17,7 @@ const urlHeadline =
 const Home = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false);
   const [cookies, removeCookie] = useCookies();
   const navigate = useNavigate();
   const getName = localStorage.getItem("name");
@@ -67,6 +69,14 @@ const Home = () => {
             : `Hi, Welcome ${cookies.Email}! `
         }
       />
+      <div className="p-10">
+        <button
+          className="btn bg-alta-orange text-white"
+          onClick={() => setShow(true)}
+        >
+          Show Popup!
+        </button>
+      </div>
       <div className="mx-20 my-20 flex flex-wrap">
         {news && loading === true ? (
           news.map((item) => {
@@ -86,6 +96,13 @@ const Home = () => {
             <h1 className="text-black">Please wait brooo ...</h1>
           </div>
         )}
+      </div>
+      <div className="mx-10 sticky z-10 bottom-10 flex justify-center">
+        <Modal
+          show={show}
+          onClose={() => setShow(false)}
+          children={<p className="text-black">Hello I'm Children</p>}
+        />
       </div>
     </div>
   );
